@@ -2,7 +2,7 @@
 
 read -p "Enter IP address of your PXE Server: " ip
 
-#directories for syslinux and files for images
+#directories for syslinux files and for images
 mkdir -p /srv/tftp/{images,pxelinux} 
 
 #installing nginx, samba, tftpd-hpa
