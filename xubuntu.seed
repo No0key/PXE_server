@@ -5,7 +5,7 @@
 # No XFCE translation packages yet.
 #d-i	pkgsel/language-pack-patterns	string
 #d-i  base-installer/kernel/altmeta   string hwe-18.04
-d-i live-installer/net-image string http://192.168.10.2/xubuntu/install/filesystem.squashfs
+d-i live-installer/net-image string http://$your_PXE_server_ip_address/xubuntu/install/filesystem.squashfs
 
 #### Contents of the preconfiguration file (for squeeze)
 ### Localization
@@ -506,6 +506,8 @@ xserver-xorg xserver-xorg/config/monitor/mode-list \
 # directly, or use the apt-install and in-target commands to easily install
 # packages and run commands in the target system.
 #d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh
+
+#Installing openssh-server and permit root login
 d-i preseed/late_command string apt-install openssh-server; \
 in-target sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config; \
 in-target service sshd restart;
